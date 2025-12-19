@@ -30,10 +30,24 @@ app.post("/create", async (req, res) => {
   res.redirect("/read");
 });
 
-app.get("/delete/:_id", async(req, res) => {
-    const _id = req.params._id
-    await userSchema.findOneAndDelete({_id})
-    res.redirect("/read")
-})
+app.get("/delete/:_id", async (req, res) => {
+  const _id = req.params._id;
+  await userSchema.findOneAndDelete({ _id });
+  res.redirect("/read");
+});
+
+app.get("/edit/:_id", async (req, res) => {
+  const user = await userSchema.findOne({ _id: req.params._id });
+  res.render("edit", { user });
+});
+
+app.post("/update/:_id", async (req, res) => {
+  const { name, email, image } = req.body;
+  await userSchema.findOneAndUpdate(
+    { _id: req.params._id },
+    { name, email, image }
+  );
+  res.redirect("/read");
+});
 
 app.listen(3000);
