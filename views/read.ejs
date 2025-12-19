@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Read</title>
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-</head>
-<body class="bg-zinc-900">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-zinc-900">
     <section class="p-12 mx-auto">
-        <a class="text-blue-600 underline" href="/">Back To Home</a>
-        <div class="mt-6 flex gap-6 flex-wrap">
-            <div class="border border-1 border-zinc-700 w-72 p-4 rounded-md bg-zinc-800">
-                <div class="h-52 border-1 border-zinc-700 rounded-md mb-4">
-                    <img src="/images/nusrat.jpg" class="h-52 w-full object-cover rounded-md" alt="">
-                </div>
-                <h3 class="text-2xl text-sky-500 mb-2">Nusrat Jahan</h3>
-                <p class="text-zinc-300">nusrat@gmail.com</p>
-                <div class="mt-4 flex item-center justify-between">
-                    <a class="text-yellow-500 underline" href="/edit">Edit User</a>
-                    <a class="text-red-500 underline" href="/delete">Delete User</a>
-                </div>
-            </div>
+      <a class="text-blue-600 underline" href="/">Back To Home</a>
+      <div class="mt-6 flex gap-6 flex-wrap">
+        <% users.forEach((user) => { %>
+
+        <div
+          class="border border-1 border-zinc-700 w-72 p-4 rounded-md bg-zinc-800"
+        >
+          <div class="h-52 border-1 border-zinc-700 rounded-md mb-4">
+            <img
+              src="<%= user.image %>"
+              class="h-52 w-full object-cover rounded-md"
+              alt=""
+            />
+          </div>
+
+          <h3 class="text-2xl text-sky-500 mb-2"><%= user.name %></h3>
+          <p class="text-zinc-300"><%= user.email %></p>
+
+          <div class="mt-4 flex items-center justify-between">
+            <a class="text-yellow-500 underline" href="/edit/<%= user._id %>"
+              >Edit User</a
+            >
+            <a class="text-red-500 underline" href="/delete/<%= user._id %>"
+              >Delete User</a
+            >
+          </div>
         </div>
+
+        <% }) %>
+      </div>
     </section>
-</body>
+  </body>
 </html>
