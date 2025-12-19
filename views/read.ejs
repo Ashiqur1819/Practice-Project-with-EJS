@@ -10,7 +10,10 @@
     <section class="p-12 mx-auto">
       <a class="text-blue-600 underline" href="/">Back To Home</a>
       <div class="mt-6 flex gap-6 flex-wrap">
-        <% users.forEach((user) => { %>
+
+        <% if (users.length > 0) { %>
+
+  <% users.forEach((user) => { %>
 
         <div
           class="border border-1 border-zinc-700 w-72 p-4 rounded-md bg-zinc-800"
@@ -37,6 +40,12 @@
         </div>
 
         <% }) %>
+
+<% } else { %>
+  <p class="text-2xl text-red-500">No users found</p>
+<% } %>
+
+        
       </div>
     </section>
   </body>
