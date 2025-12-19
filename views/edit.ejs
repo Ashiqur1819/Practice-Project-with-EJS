@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit</title>
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-</head>
-<body class="bg-zinc-900">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-zinc-900">
     <section class="p-12 w-1/4 mx-auto">
-        <a class="text-blue-600 underline" href="/">Back to home</a>
-        <form action="/update/<%= user._id %>" method="post" class="text-white flex flex-col gap-4 mt-6">
-            <input class="px-5 py-2 outline-none border-1 border-zinc-700 bg-zinc-900 rounded-md" type="text" placeholder="Name" name="name" value="<%= user.name %>">
-            <input class="px-5 py-2 outline-none border-1 border-zinc-700 bg-zinc-900 rounded-md" type="email" placeholder="Email" name="email" id="" value="<%= user.email %>">
-            <input class="px-5 py-2 outline-none border-1 border-zinc-700 bg-zinc-900 rounded-md" type="text" placeholder="Image URL" name="image" value="<%= user.image %>">
-            <input class="px-5 py-2 bg-sky-500 cursor-pointer rounded-md" type="submit" value="Update User">
-        </form>
+      <a class="text-blue-600 underline" href="/">Back to home</a>
+      <form
+        action="/update/<%= user._id %>"
+        method="post"
+        class="text-white flex flex-col gap-4 mt-6"
+      >
+        <input
+          class="px-5 py-2 outline-none border-1 border-zinc-700 bg-zinc-900 rounded-md"
+          type="text"
+          placeholder="Name"
+          name="name"
+          value="<%= user.name %>"
+        />
+        <input
+          class="px-5 py-2 outline-none border-1 border-zinc-700 bg-zinc-900 rounded-md"
+          type="email"
+          placeholder="Email"
+          name="email"
+          id=""
+          value="<%= user.email %>"
+        />
+        <input
+          class="px-5 py-2 outline-none border-1 border-zinc-700 bg-zinc-900 rounded-md"
+          type="text"
+          placeholder="Image URL"
+          name="image"
+          value="<%= user.image %>"
+        />
+        <input
+          class="px-5 py-2 bg-sky-500 cursor-pointer rounded-md"
+          type="submit"
+          value="Update User"
+        />
+      </form>
     </section>
-</body>
+  </body>
 </html>
